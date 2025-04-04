@@ -13,7 +13,13 @@ jobs:
             python-version: '3.13'
 
       - name: Install RailOSTools
-        run: python -m pip install "git+https://github.com/Railway-Op-Sim/railostools.git@v0.6.0#egg=railostools&subdirectory=python"
+        run: python -m pip install "git+https://github.com/Railway-Op-Sim/railostools.git@v0.6.1#egg=railostools&subdirectory=python"
 
       - name: Validate Timetable
-        run: for ttb in $(find -name "*.ttb"); do railostools validate $ttb; done
+        run: |
+          set -e
+          for ttb in $(find -name "*.ttb"); do
+            echo "Validating $ttb"
+            railostools validate $ttb || (echo "Validation failed." && exit 1)
+            echo "Validation succeeded."
+          done
