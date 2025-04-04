@@ -1,0 +1,16 @@
+rly_file = "Chicago_L_Train.rly"
+ttb_files = [ "CTA_Weekday_6am.ttb",]
+ssn_files = [ "ChicagoLTrain_6am_Auto_halfspeed.ssn",]
+img_files = [ "Chicago_L_Train.bmp",]
+doc_files = [ "README.md",]
+release_date = "2025-04-04"
+version = "1.0.0"
+country_code = "US"
+factual = true
+description = ""
+year = 2025
+display_name = "Chicago L Train"
+name = "Chicago L Train"
+signal_position = "left"
+author = "Kristian Zarębski"
+contributors = []
