@@ -1,4 +1,4 @@
-name: ROS Metadata Build
+name: RailOS Metadata Build
 
 on:
   push:
@@ -24,12 +24,11 @@ jobs:
 
       - name: Get latest author
         shell: bash
-        run: echo "##[set-output name=author;]$(git log -1 --pretty=format:'%an')"
+        run: echo "author=$(git log -1 --pretty=format:'%an')" >> $GITHUB_OUTPUT
         id: extract_author
 
       - name: Create/Update File
-        run: |
-            metabuild "$GITHUB_WORKSPACE" --repo-name "$GITHUB_REPOSITORY" --debug
+        run: metabuild "$GITHUB_WORKSPACE" --repo-name "$GITHUB_REPOSITORY" --debug
 
       - name: Commit to git
         run: |
